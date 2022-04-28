@@ -23,7 +23,7 @@ export default function Layout({ children, page }: { children: React.ReactNode, 
       }),
     [mode],
   );
-  function handleToggleColorMode(value: any) {
+  function handleToggleColorMode() {
     setMode(mode == "light" ? "dark" : "light")
   }
   return <div className={mode == 'light' ? 'bg-[#E5E5E5]' : 'bg-black'} >

@@ -20,7 +20,7 @@ import _, { debounce } from 'lodash';
 import { ActionLike } from '../favorite/favoriteFunction';
 import { useRouter } from 'next/router';
 
-export function SearchBar(props: any) {
+export function SearchBar() {
   const search = useAppSelector(getSearch);
   const favorite = useAppSelector(getFavorites)
   const router = useRouter()
