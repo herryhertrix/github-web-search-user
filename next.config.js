@@ -10,6 +10,7 @@ module.exports = {
   images: {
     domains: [
       'avatars.githubusercontent.com',
+      'cdn5.vectorstock.com'
     ],
   },
 

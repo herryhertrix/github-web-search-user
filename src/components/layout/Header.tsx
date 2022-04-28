@@ -10,6 +10,8 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import { Switch, Tooltip } from '@mui/material';
+import Link from 'next/link';
+import { Home } from '@mui/icons-material';
 
 const links = [
   { href: '/', label: 'Route 1' },
@@ -39,23 +41,28 @@ export default function Header(props: any) {
   }
   return (
     <header className='sticky top-0 z-50'>
-      <Box sx={{ flexGrow: 1, color: 'text.primary', bgcolor: 'background.default' }}>
-        <AppBar position="static" className="shadow-none " sx={{ bgcolor: 'background.default', color: 'text.primary' }} >
-          <Toolbar>
-            <Typography className='bg-inherit' variant="h6" component="div" sx={{ flexGrow: 1, bgcolor: 'background.default', color: 'text.primary', height: 84 }}>
-              <div className='pt-[32px]' hidden={props.page == "home" ? false : true}>Search</div>
-              <div className='pt-[32px]' hidden={props.page == "favorite" ? false : true}>Favorite</div>
-            </Typography>
-            <Tooltip title="Toggle dark mode">
-              <Switch
-                checked={checked}
-                sx={{ input: { height: 20, marginTop: 1 } }}
-                onChange={() => toggleColorMode()}
-                inputProps={{ 'aria-label': 'controlled' }}
-              />
-            </Tooltip>
-          </Toolbar>
-        </AppBar>
+      <Box position="static" className="shadow-none " sx={{ flexGrow: 1, bgcolor: 'background.default', color: 'text.primary' }} >
+        <Toolbar>
+          <Typography className='bg-inherit' variant="h6" component="div" sx={{ flexGrow: 1, bgcolor: 'background.default', color: 'text.primary', height: 84 }}>
+            <div className='pt-[32px]' hidden={props.page == "home" ? false : true}>Search</div>
+            <div className='pt-[32px]' hidden={props.page == "favorite" ? false : true}>Favorite</div>
+
+            <div className='cursor-pointer pt-[32px]' hidden={props.page == "user" ? false : true}>
+              <Link href={"/"}>
+                <Home ></Home>
+              </Link>
+            </div>
+
+          </Typography>
+          <Tooltip title="Toggle dark mode">
+            <Switch
+              checked={checked}
+              sx={{ input: { height: 20, marginTop: 1 } }}
+              onChange={() => toggleColorMode()}
+              inputProps={{ 'aria-label': 'controlled' }}
+            />
+          </Tooltip>
+        </Toolbar>
       </Box>
     </header>
   );
